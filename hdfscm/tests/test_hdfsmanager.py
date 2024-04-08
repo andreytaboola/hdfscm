@@ -1,6 +1,7 @@
-from notebook.services.contents.tests.test_manager import (
-    TestContentsManager
-)
+try:
+    from notebook.services.contents.tests.test_manager import TestContentsManager
+except ImportError:
+    from jupyter_server.services.contents.tests.test_manager import TestContentsManager
 
 from hdfscm import HDFSContentsManager, NoOpCheckpoints
 

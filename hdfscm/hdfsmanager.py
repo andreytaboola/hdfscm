@@ -4,7 +4,10 @@ from getpass import getuser
 from urllib.parse import urlsplit
 
 import nbformat
-from notebook.services.contents.manager import ContentsManager
+try:
+    from notebook.services.contents.manager import ContentsManager
+except ImportError:
+    from jupyter_server.services.contents.manager import ContentsManager
 from pyarrow import hdfs, ArrowIOError
 from traitlets import Unicode, Integer, Bool, default
 from tornado.web import HTTPError

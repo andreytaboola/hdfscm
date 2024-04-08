@@ -1,7 +1,12 @@
 import nbformat
-from notebook.services.contents.tests.test_contents_api import (
-    APITest, assert_http_error
-)
+try:
+    from notebook.services.contents.tests.test_contents_api import (
+        APITest, assert_http_error
+    )
+except ImportError:
+    from jupyter_server.services.contents.tests.test_contents_api import (
+        APITest, assert_http_error
+    )
 from traitlets.config import Config
 
 from hdfscm import HDFSContentsManager

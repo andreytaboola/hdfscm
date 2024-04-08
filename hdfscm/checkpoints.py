@@ -1,5 +1,8 @@
 import posixpath
-from notebook.services.contents.checkpoints import Checkpoints
+try:
+    from notebook.services.contents.checkpoints import Checkpoints
+except ImportError:
+    from jupyter_server.services.contents.checkpoints import Checkpoints
 from tornado.web import HTTPError
 from traitlets import Unicode, Instance, default
 from pyarrow import hdfs
